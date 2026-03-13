@@ -84,6 +84,18 @@ const site = {
         { path: '/tuning/case-study', labelKey: 'site.nav.tuningCase' },
       ]
     },
+    {
+      labelKey: 'site.nav.oracle',
+      path: '/oracle',
+      activePath: '/oracle',
+      dropdown: [
+        { path: '/oracle/sql-processing', labelKey: 'site.nav.oracleSqlProcessing' },
+        { path: '/oracle/execution-plan', labelKey: 'site.nav.oracleExecutionPlan' },
+        { path: '/oracle/index-strategy', labelKey: 'site.nav.oracleIndexStrategy' },
+        { path: '/oracle/awr-analysis', labelKey: 'site.nav.oracleAwrAnalysis' },
+        { path: '/oracle/parallel-wait', labelKey: 'site.nav.oracleParallelWait' },
+      ]
+    },
     { path: '/references', labelKey: 'site.nav.references', activePath: '/references' }
   ],
 
@@ -98,6 +110,9 @@ const site = {
     { path: '/web/node-mysql', labelKey: 'site.nav.nodeMysql' },
     { path: '/tuning', labelKey: 'site.nav.tuning' },
     { path: '/tuning/explain', labelKey: 'site.nav.tuningExplain' },
+    { path: '/oracle', labelKey: 'site.nav.oracle' },
+    { path: '/oracle/sql-processing', labelKey: 'site.nav.oracleSqlProcessing' },
+    { path: '/oracle/execution-plan', labelKey: 'site.nav.oracleExecutionPlan' },
     { path: '/sql', labelKey: 'site.nav.sql' },
     { path: '/sql/setup', labelKey: 'site.nav.sqlSetup' },
     { path: '/sql/join', labelKey: 'site.nav.sqlJoin' },

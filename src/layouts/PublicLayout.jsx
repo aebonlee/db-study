@@ -26,6 +26,12 @@ const IndexTuning = lazy(() => import('../pages/IndexTuning'));
 const SqlTuning = lazy(() => import('../pages/SqlTuning'));
 const ServerTuning = lazy(() => import('../pages/ServerTuning'));
 const TuningCaseStudy = lazy(() => import('../pages/TuningCaseStudy'));
+const OracleTuning = lazy(() => import('../pages/OracleTuning'));
+const OracleSqlProcessing = lazy(() => import('../pages/OracleSqlProcessing'));
+const OracleExecutionPlan = lazy(() => import('../pages/OracleExecutionPlan'));
+const OracleIndexStrategy = lazy(() => import('../pages/OracleIndexStrategy'));
+const OracleAwrAnalysis = lazy(() => import('../pages/OracleAwrAnalysis'));
+const OracleParallelWait = lazy(() => import('../pages/OracleParallelWait'));
 const SqlLesson = lazy(() => import('../pages/SqlLesson'));
 const SqlChapter1 = lazy(() => import('../pages/SqlChapter1'));
 const SqlChapter2 = lazy(() => import('../pages/SqlChapter2'));
@@ -87,6 +93,14 @@ const PublicLayout = () => {
             <Route path="/tuning/sql" element={<SqlTuning />} />
             <Route path="/tuning/server" element={<ServerTuning />} />
             <Route path="/tuning/case-study" element={<TuningCaseStudy />} />
+
+            {/* Oracle Tuning */}
+            <Route path="/oracle" element={<OracleTuning />} />
+            <Route path="/oracle/sql-processing" element={<OracleSqlProcessing />} />
+            <Route path="/oracle/execution-plan" element={<OracleExecutionPlan />} />
+            <Route path="/oracle/index-strategy" element={<OracleIndexStrategy />} />
+            <Route path="/oracle/awr-analysis" element={<OracleAwrAnalysis />} />
+            <Route path="/oracle/parallel-wait" element={<OracleParallelWait />} />
 
             {/* SQL Lessons */}
             <Route path="/sql" element={<SqlLesson />} />

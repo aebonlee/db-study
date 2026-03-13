@@ -45,6 +45,14 @@ const Home = () => {
     { path: '/tuning/case-study', title: '튜닝 실전 사례',    desc: '슬로우 쿼리 분석, Before/After',             icon: '🏆' },
   ];
 
+  const oracleCards = [
+    { path: '/oracle/sql-processing',  title: 'SQL 처리 구조와 I/O',     desc: 'Parse/Bind/Execute/Fetch, SGA/PGA',        icon: '🏛️' },
+    { path: '/oracle/execution-plan',  title: '실행계획과 옵티마이저',      desc: 'DBMS_XPLAN, 커서 공유, 힌트 전략',          icon: '📋' },
+    { path: '/oracle/index-strategy',  title: '인덱스 전략과 조인',       desc: 'B-Tree, NL/Hash/Merge Join',               icon: '📑' },
+    { path: '/oracle/awr-analysis',    title: 'AWR 분석과 성능 진단',     desc: 'AWR 리포트, 통계, 히스토그램',                icon: '📊' },
+    { path: '/oracle/parallel-wait',   title: '병렬처리와 Wait Event',    desc: 'Parallel Query, Lock 진단',                icon: '⚡' },
+  ];
+
   const serviceCards = [
     { path: '/services/rdbms-compare', title: '관계형 DB 비교',      desc: 'MySQL, PostgreSQL, Oracle, SQL Server, SQLite', icon: '🏛️' },
     { path: '/services/nosql',        title: 'NoSQL 데이터베이스',    desc: 'MongoDB, Redis, Cassandra, Neo4j',              icon: '🍃' },
@@ -171,6 +179,29 @@ const Home = () => {
           <p className="section-subtitle" data-aos="fade-up">데이터베이스 성능을 분석하고 최적화하는 기법을 학습합니다.</p>
           <div className="curriculum-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)', maxWidth: '960px', margin: '0 auto' }}>
             {tuningCards.map((item, i) => (
+              <Link
+                to={item.path}
+                key={item.path}
+                className="curriculum-card"
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
+              >
+                <span className="curriculum-icon">{item.icon}</span>
+                <h3 className="curriculum-card-title">{item.title}</h3>
+                <p className="curriculum-card-desc">{item.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Oracle Tuning Cards */}
+      <section className="section curriculum-section">
+        <div className="container">
+          <h2 className="section-title" data-aos="fade-up">Oracle SQL 튜닝</h2>
+          <p className="section-subtitle" data-aos="fade-up">Oracle 데이터베이스 환경에서의 SQL 튜닝 전략을 학습합니다.</p>
+          <div className="curriculum-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)', maxWidth: '960px', margin: '0 auto' }}>
+            {oracleCards.map((item, i) => (
               <Link
                 to={item.path}
                 key={item.path}
