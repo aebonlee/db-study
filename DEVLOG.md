@@ -13,6 +13,47 @@
 
 ---
 
+## 2026-03-14 (Day 1-5) — "Oracle SQL 튜닝" 메뉴 추가
+
+### 추가 배경
+BNK 부산은행 Oracle SQL 튜닝 과정(5일 40시간) 학습 자료를 기반으로, Oracle 환경에서의 SQL 튜닝을 체계적으로 학습할 수 있는 별도 메뉴 섹션 추가. 기존 MySQL 튜닝 메뉴는 그대로 유지.
+
+### 생성 파일 (6개 페이지)
+
+| 파일 | 페이지 | 내용 |
+|------|--------|------|
+| `OracleTuning.jsx` | 목차 | 5개 Oracle 튜닝 학습 카드, 학습 로드맵, MySQL과의 차이점 |
+| `OracleSqlProcessing.jsx` | SQL 처리 구조와 I/O | Parse→Bind→Execute→Fetch, Hard/Soft Parse, SGA/PGA, Buffer Cache, 실행계획 기초, 조건절 튜닝(함수 제거, OR→UNION ALL, NOT IN→NOT EXISTS), B-Tree 인덱스 |
+| `OracleExecutionPlan.jsx` | 실행계획과 옵티마이저 | DBMS_XPLAN 상세 활용, 실행계획 읽는 규칙, 수치 진단, 커서 공유/Shared Pool, 서브쿼리 튜닝(IN→EXISTS→JOIN, 스칼라→JOIN), Oracle 힌트(INDEX/FULL/LEADING/USE_NL/USE_HASH), 파티셔닝 |
+| `OracleIndexStrategy.jsx` | 인덱스 전략과 조인 튜닝 | 복합 인덱스 선두 컬럼, Function-Based Index, Index Skip Scan, 인덱스 유지보수(REBUILD), NL/Hash/Merge Join 상세, OUTER JOIN 주의사항, V$SQL 비효율 SQL 탐지 |
+| `OracleAwrAnalysis.jsx` | AWR 분석과 성능 진단 | AWR 리포트 생성/해석, DBA_HIST_SQLSTAT, DBMS_STATS 통계 수집, 히스토그램(FREQUENCY/HEIGHT BALANCED/TOP-FREQUENCY), Wait Event 기초, Lock 진단(V$SESSION/V$LOCK), 인덱스 유지보수, 튜닝 리포트 작성법 |
+| `OracleParallelWait.jsx` | 병렬처리와 Wait Event | Parallel Query 구조(QC+PX), DOP, 병렬 실행계획 해석, PX 모니터링, Wait Class 분류, Wait Event 대응(db file sequential read, enq:TX), 종합 튜닝 전략 정리, 실전 연습 문제 |
+
+### 수정 파일 (4개)
+
+| 파일 | 변경 내용 |
+|------|-----------|
+| `site.js` | menuItems에 "Oracle 튜닝" 드롭다운 메뉴 추가 (5개 항목), footerLinks에 링크 추가 |
+| `translations.js` | ko/en 번역 키 추가 (oracle, oracleSqlProcessing, oracleExecutionPlan, oracleIndexStrategy, oracleAwrAnalysis, oracleParallelWait) |
+| `PublicLayout.jsx` | 6개 lazy import + 6개 라우트 추가 (/oracle/*) |
+| `Home.jsx` | "Oracle SQL 튜닝" 카드 섹션 추가 (DB 튜닝과 SQL 커리큘럼 사이, 3열 그리드) |
+
+### 메뉴 구조 변경
+```
+홈 | DB 개론 ▼ | DB 서비스 종류 ▼ | DB 웹 연동 ▼ | SQL 학습 ▼ | DB 튜닝 ▼ | Oracle 튜닝 ▼ | 참고자료
+                                                                              ├ SQL 처리 구조와 I/O
+                                                                              ├ 실행계획과 옵티마이저
+                                                                              ├ 인덱스 전략과 조인
+                                                                              ├ AWR 분석과 성능 진단
+                                                                              └ 병렬처리와 Wait Event
+```
+
+### 빌드 결과
+- 총 47개 청크로 코드 스플리팅 (6개 Oracle 튜닝 페이지 추가)
+- 빌드 시간: 2.21초
+
+---
+
 ## 2026-03-14 (Day 1-4) — "DB 튜닝" 메뉴 추가
 
 ### 추가 배경
@@ -250,6 +291,18 @@ src/
 │   ├── OrmQueryBuilder.jsx     # ORM과 쿼리빌더
 │   ├── AuthSecurity.jsx        # 인증과 보안
 │   ├── DeployOps.jsx           # 배포와 운영
+│   ├── DbTuning.jsx            # MySQL 튜닝 목차
+│   ├── ExplainAnalysis.jsx     # 실행 계획 분석 (MySQL)
+│   ├── IndexTuning.jsx         # 인덱스 튜닝 (MySQL)
+│   ├── SqlTuning.jsx           # SQL 튜닝 기법 (MySQL)
+│   ├── ServerTuning.jsx        # DB 서버 튜닝 (MySQL)
+│   ├── TuningCaseStudy.jsx     # 튜닝 실전 사례 (MySQL)
+│   ├── OracleTuning.jsx        # Oracle 튜닝 목차
+│   ├── OracleSqlProcessing.jsx # SQL 처리 구조와 I/O
+│   ├── OracleExecutionPlan.jsx # 실행계획과 옵티마이저
+│   ├── OracleIndexStrategy.jsx # 인덱스 전략과 조인
+│   ├── OracleAwrAnalysis.jsx   # AWR 분석과 성능 진단
+│   ├── OracleParallelWait.jsx  # 병렬처리와 Wait Event
 │   ├── SqlLesson.jsx           # SQL 목차
 │   ├── SqlChapter1~12.jsx      # SQL 12개 장
 │   ├── References.jsx          # 참고자료
