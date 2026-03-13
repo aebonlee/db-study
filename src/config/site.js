@@ -41,6 +41,19 @@ const site = {
       ]
     },
     {
+      labelKey: 'site.nav.webIntegration',
+      path: '/web',
+      activePath: '/web',
+      dropdown: [
+        { path: '/web/architecture', labelKey: 'site.nav.webArchitecture' },
+        { path: '/web/node-mysql', labelKey: 'site.nav.nodeMysql' },
+        { path: '/web/python-db', labelKey: 'site.nav.pythonDb' },
+        { path: '/web/orm', labelKey: 'site.nav.orm' },
+        { path: '/web/auth-security', labelKey: 'site.nav.authSecurity' },
+        { path: '/web/deploy', labelKey: 'site.nav.deploy' },
+      ]
+    },
+    {
       labelKey: 'site.nav.sql',
       path: '/sql',
       activePath: '/sql',
@@ -68,6 +81,9 @@ const site = {
     { path: '/intro/rdbms', labelKey: 'site.nav.rdbms' },
     { path: '/services', labelKey: 'site.nav.services' },
     { path: '/services/rdbms-compare', labelKey: 'site.nav.rdbmsCompare' },
+    { path: '/web', labelKey: 'site.nav.webIntegration' },
+    { path: '/web/architecture', labelKey: 'site.nav.webArchitecture' },
+    { path: '/web/node-mysql', labelKey: 'site.nav.nodeMysql' },
     { path: '/sql', labelKey: 'site.nav.sql' },
     { path: '/sql/setup', labelKey: 'site.nav.sqlSetup' },
     { path: '/sql/join', labelKey: 'site.nav.sqlJoin' },

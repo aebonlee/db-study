@@ -13,6 +13,49 @@
 
 ---
 
+## 2026-03-14 (Day 1-3) — "DB 웹 연동" 메뉴 추가
+
+### 추가 배경
+웹 애플리케이션과 데이터베이스를 연동하는 실무 기술을 체계적으로 학습할 수 있도록 새로운 메뉴 섹션 추가.
+
+### 생성 파일 (7개 페이지)
+
+| 파일 | 페이지 | 내용 |
+|------|--------|------|
+| `WebIntegration.jsx` | 목차 | 6개 학습 카드 그리드 |
+| `WebArchitecture.jsx` | 웹-DB 연동 구조 | 3-tier 아키텍처, REST API, HTTP 메서드, DB 드라이버, 커넥션 풀 |
+| `NodeMysql.jsx` | Node.js + MySQL | Express.js + mysql2, 커넥션 풀 설정, CRUD API, 검색/필터/페이지네이션 |
+| `PythonDb.jsx` | Python + DB | Flask + PyMySQL, FastAPI + aiomysql, SQLAlchemy ORM, Flask vs FastAPI 비교 |
+| `OrmQueryBuilder.jsx` | ORM과 쿼리빌더 | Raw SQL vs 쿼리빌더 vs ORM, Prisma/Sequelize/TypeORM/SQLAlchemy 비교, N+1 문제 |
+| `AuthSecurity.jsx` | 인증과 보안 | SQL Injection 원리/방지, bcrypt 해싱, 세션 vs JWT 인증, 보안 체크리스트 |
+| `DeployOps.jsx` | 배포와 운영 | 환경 분리, 마이그레이션(Prisma/수동), mysqldump 백업/복원, 모니터링, CI/CD, 성능 최적화 |
+
+### 수정 파일 (4개)
+
+| 파일 | 변경 내용 |
+|------|-----------|
+| `site.js` | menuItems에 "DB 웹 연동" 드롭다운 메뉴 추가 (6개 항목), footerLinks에 링크 추가 |
+| `translations.js` | ko/en 번역 키 추가 (webIntegration, webArchitecture, nodeMysql, pythonDb, orm, authSecurity, deploy) |
+| `PublicLayout.jsx` | 7개 lazy import + 7개 라우트 추가 (/web, /web/architecture, /web/node-mysql, /web/python-db, /web/orm, /web/auth-security, /web/deploy) |
+| `Home.jsx` | "DB 웹 연동" 카드 섹션 추가 (DB 서비스 종류와 SQL 커리큘럼 사이, 3열 그리드) |
+
+### 메뉴 구조 변경
+```
+홈 | DB 개론 ▼ | DB 서비스 종류 ▼ | DB 웹 연동 ▼ | SQL 학습 ▼ | 참고자료
+                                   ├ 웹-DB 연동 구조
+                                   ├ Node.js + MySQL
+                                   ├ Python + DB
+                                   ├ ORM과 쿼리빌더
+                                   ├ 인증과 보안
+                                   └ 배포와 운영
+```
+
+### 빌드 결과
+- 총 35개 청크로 코드 스플리팅 (7개 웹연동 페이지 추가)
+- 빌드 시간: 2.05초
+
+---
+
 ## 2026-03-14 (Day 1-2) — "DB 서비스 종류" 메뉴 추가
 
 ### 추가 배경
@@ -158,6 +201,18 @@ src/
 │   ├── Home.jsx                # 메인 페이지
 │   ├── WhatIsDB.jsx            # DB 개론 1
 │   ├── RDBMS.jsx               # DB 개론 2
+│   ├── DbServices.jsx          # DB 서비스 목차
+│   ├── RdbmsCompare.jsx        # 관계형 DB 비교
+│   ├── NoSqlDb.jsx             # NoSQL
+│   ├── CloudDb.jsx             # 클라우드 DB
+│   ├── NewSqlDb.jsx            # NewSQL & 특수목적 DB
+│   ├── WebIntegration.jsx      # DB 웹 연동 목차
+│   ├── WebArchitecture.jsx     # 웹-DB 연동 구조
+│   ├── NodeMysql.jsx           # Node.js + MySQL
+│   ├── PythonDb.jsx            # Python + DB
+│   ├── OrmQueryBuilder.jsx     # ORM과 쿼리빌더
+│   ├── AuthSecurity.jsx        # 인증과 보안
+│   ├── DeployOps.jsx           # 배포와 운영
 │   ├── SqlLesson.jsx           # SQL 목차
 │   ├── SqlChapter1~12.jsx      # SQL 12개 장
 │   ├── References.jsx          # 참고자료

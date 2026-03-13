@@ -13,6 +13,13 @@ const RdbmsCompare = lazy(() => import('../pages/RdbmsCompare'));
 const NoSqlDb = lazy(() => import('../pages/NoSqlDb'));
 const CloudDb = lazy(() => import('../pages/CloudDb'));
 const NewSqlDb = lazy(() => import('../pages/NewSqlDb'));
+const WebIntegration = lazy(() => import('../pages/WebIntegration'));
+const WebArchitecture = lazy(() => import('../pages/WebArchitecture'));
+const NodeMysql = lazy(() => import('../pages/NodeMysql'));
+const PythonDb = lazy(() => import('../pages/PythonDb'));
+const OrmQueryBuilder = lazy(() => import('../pages/OrmQueryBuilder'));
+const AuthSecurity = lazy(() => import('../pages/AuthSecurity'));
+const DeployOps = lazy(() => import('../pages/DeployOps'));
 const SqlLesson = lazy(() => import('../pages/SqlLesson'));
 const SqlChapter1 = lazy(() => import('../pages/SqlChapter1'));
 const SqlChapter2 = lazy(() => import('../pages/SqlChapter2'));
@@ -57,6 +64,15 @@ const PublicLayout = () => {
             <Route path="/services/nosql" element={<NoSqlDb />} />
             <Route path="/services/cloud-db" element={<CloudDb />} />
             <Route path="/services/newsql" element={<NewSqlDb />} />
+
+            {/* DB Web Integration */}
+            <Route path="/web" element={<WebIntegration />} />
+            <Route path="/web/architecture" element={<WebArchitecture />} />
+            <Route path="/web/node-mysql" element={<NodeMysql />} />
+            <Route path="/web/python-db" element={<PythonDb />} />
+            <Route path="/web/orm" element={<OrmQueryBuilder />} />
+            <Route path="/web/auth-security" element={<AuthSecurity />} />
+            <Route path="/web/deploy" element={<DeployOps />} />
 
             {/* SQL Lessons */}
             <Route path="/sql" element={<SqlLesson />} />
