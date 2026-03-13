@@ -1,0 +1,1 @@
+AWR Report 생성 전 SYSAUX 테이블스페이스를 1G로 늘려준다.

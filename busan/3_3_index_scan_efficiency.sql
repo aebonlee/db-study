@@ -1,0 +1,86 @@
+
+-- ▼ 실습용 테이블 초기화
+DROP TABLE emp PURGE;
+CREATE TABLE emp (
+    emp_id NUMBER PRIMARY KEY,
+    dept_id NUMBER,
+    job_id VARCHAR2(10),
+    hire_date DATE,
+    salary NUMBER
+);
+
+-- 데이터 삽입
+BEGIN
+  FOR i IN 1..10000 LOOP
+    INSERT INTO emp VALUES (
+      i,
+      MOD(i, 10),  -- dept_id: 0~9
+      CASE MOD(i, 5)
+        WHEN 0 THEN 'CLERK'
+        WHEN 1 THEN 'MANAGER'
+        WHEN 2 THEN 'ANALYST'
+        WHEN 3 THEN 'SALES'
+        ELSE 'IT_PROG'
+      END,
+      TO_DATE('2015-01-01','YYYY-MM-DD') + MOD(i, 365*5),
+      ROUND(DBMS_RANDOM.VALUE(3000, 10000), -2)
+    );
+  END LOOP;
+  COMMIT;
+END;
+/
+
+-- 3.3.1 인덱스 탐색 (기본 인덱스 조회)
+CREATE INDEX idx_emp_job ON emp(job_id);
+EXPLAIN PLAN FOR SELECT * FROM emp WHERE job_id = 'CLERK';
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
+
+-- 3.3.2 인덱스 스캔 효율성 (selectivity 차이)
+EXPLAIN PLAN FOR SELECT * FROM emp WHERE job_id IN ('CLERK', 'IT_PROG');
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
+
+-- 3.3.3 액세스 조건과 필터 조건 차이
+EXPLAIN PLAN FOR SELECT * FROM emp WHERE job_id = 'CLERK' AND salary > 5000;
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
+
+-- 3.3.4 비교 연산자와 컬럼 순서
+CREATE INDEX idx_emp_dept_job ON emp(dept_id, job_id);
+EXPLAIN PLAN FOR SELECT * FROM emp WHERE dept_id = 5 AND job_id = 'MANAGER';
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
+
+-- 3.3.5 선행 컬럼이 = 조건이 아닐 경우
+EXPLAIN PLAN FOR SELECT * FROM emp WHERE dept_id > 5 AND job_id = 'CLERK';
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
+
+-- 3.3.6 BETWEEN vs IN-List
+EXPLAIN PLAN FOR SELECT * FROM emp WHERE dept_id BETWEEN 1 AND 3;
+EXPLAIN PLAN FOR SELECT * FROM emp WHERE dept_id IN (1, 2, 3);
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
+
+-- 3.3.7 Index Skip Scan
+CREATE INDEX idx_emp_job_dept ON emp(job_id, dept_id);
+EXPLAIN PLAN FOR SELECT * FROM emp WHERE dept_id = 1;
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
+
+-- 3.3.8 IN 조건은 ‘=’인가?
+EXPLAIN PLAN FOR SELECT * FROM emp WHERE job_id IN ('CLERK', 'ANALYST');
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
+
+-- 3.3.9 BETWEEN vs LIKE 비교
+EXPLAIN PLAN FOR SELECT * FROM emp WHERE hire_date BETWEEN TO_DATE('2017-01-01','YYYY-MM-DD') AND TO_DATE('2017-12-31','YYYY-MM-DD');
+EXPLAIN PLAN FOR SELECT * FROM emp WHERE TO_CHAR(hire_date, 'YYYY') = '2017';
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
+
+-- 3.3.10 범위검색 조건 남용
+EXPLAIN PLAN FOR SELECT * FROM emp WHERE salary > 3000;
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
+
+-- 3.3.11 다양한 조건 처리 방식
+EXPLAIN PLAN FOR SELECT * FROM emp WHERE dept_id IN (1, 2, 3) AND job_id LIKE 'C%';
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
+
+-- 3.3.12 함수 호출 해소 인덱스 구성
+CREATE INDEX idx_emp_func ON emp(TO_CHAR(hire_date, 'YYYYMM'));
+-- 실행계획 확인
+EXPLAIN PLAN FOR SELECT * FROM emp WHERE TO_CHAR(hire_date, 'YYYYMM') = '201701';
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
