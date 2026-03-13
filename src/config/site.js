@@ -72,6 +72,18 @@ const site = {
         { path: '/sql/design', labelKey: 'site.nav.sqlDesign' },
       ]
     },
+    {
+      labelKey: 'site.nav.tuning',
+      path: '/tuning',
+      activePath: '/tuning',
+      dropdown: [
+        { path: '/tuning/explain', labelKey: 'site.nav.tuningExplain' },
+        { path: '/tuning/index', labelKey: 'site.nav.tuningIndex' },
+        { path: '/tuning/sql', labelKey: 'site.nav.tuningSql' },
+        { path: '/tuning/server', labelKey: 'site.nav.tuningServer' },
+        { path: '/tuning/case-study', labelKey: 'site.nav.tuningCase' },
+      ]
+    },
     { path: '/references', labelKey: 'site.nav.references', activePath: '/references' }
   ],
 
@@ -84,6 +96,8 @@ const site = {
     { path: '/web', labelKey: 'site.nav.webIntegration' },
     { path: '/web/architecture', labelKey: 'site.nav.webArchitecture' },
     { path: '/web/node-mysql', labelKey: 'site.nav.nodeMysql' },
+    { path: '/tuning', labelKey: 'site.nav.tuning' },
+    { path: '/tuning/explain', labelKey: 'site.nav.tuningExplain' },
     { path: '/sql', labelKey: 'site.nav.sql' },
     { path: '/sql/setup', labelKey: 'site.nav.sqlSetup' },
     { path: '/sql/join', labelKey: 'site.nav.sqlJoin' },

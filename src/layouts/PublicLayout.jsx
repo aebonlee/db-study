@@ -20,6 +20,12 @@ const PythonDb = lazy(() => import('../pages/PythonDb'));
 const OrmQueryBuilder = lazy(() => import('../pages/OrmQueryBuilder'));
 const AuthSecurity = lazy(() => import('../pages/AuthSecurity'));
 const DeployOps = lazy(() => import('../pages/DeployOps'));
+const DbTuning = lazy(() => import('../pages/DbTuning'));
+const ExplainAnalysis = lazy(() => import('../pages/ExplainAnalysis'));
+const IndexTuning = lazy(() => import('../pages/IndexTuning'));
+const SqlTuning = lazy(() => import('../pages/SqlTuning'));
+const ServerTuning = lazy(() => import('../pages/ServerTuning'));
+const TuningCaseStudy = lazy(() => import('../pages/TuningCaseStudy'));
 const SqlLesson = lazy(() => import('../pages/SqlLesson'));
 const SqlChapter1 = lazy(() => import('../pages/SqlChapter1'));
 const SqlChapter2 = lazy(() => import('../pages/SqlChapter2'));
@@ -73,6 +79,14 @@ const PublicLayout = () => {
             <Route path="/web/orm" element={<OrmQueryBuilder />} />
             <Route path="/web/auth-security" element={<AuthSecurity />} />
             <Route path="/web/deploy" element={<DeployOps />} />
+
+            {/* DB Tuning */}
+            <Route path="/tuning" element={<DbTuning />} />
+            <Route path="/tuning/explain" element={<ExplainAnalysis />} />
+            <Route path="/tuning/index" element={<IndexTuning />} />
+            <Route path="/tuning/sql" element={<SqlTuning />} />
+            <Route path="/tuning/server" element={<ServerTuning />} />
+            <Route path="/tuning/case-study" element={<TuningCaseStudy />} />
 
             {/* SQL Lessons */}
             <Route path="/sql" element={<SqlLesson />} />

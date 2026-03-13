@@ -13,6 +13,43 @@
 
 ---
 
+## 2026-03-14 (Day 1-4) — "DB 튜닝" 메뉴 추가
+
+### 추가 배경
+BNK SQL 튜닝 학습 자료를 기반으로, DB 성능 분석과 최적화를 체계적으로 학습할 수 있는 메뉴 섹션 추가.
+
+### 생성 파일 (6개 페이지)
+
+| 파일 | 페이지 | 내용 |
+|------|--------|------|
+| `DbTuning.jsx` | 목차 | 5개 튜닝 학습 카드 그리드 |
+| `ExplainAnalysis.jsx` | 실행 계획 분석 | EXPLAIN 컬럼 해석, type 성능 순서, Extra 주의사항, EXPLAIN ANALYZE, SHOW PROFILE, 슬로우 쿼리 로그 |
+| `IndexTuning.jsx` | 인덱스 튜닝 | B-Tree 구조, 인덱스 종류, 복합 인덱스 최좌선 원칙, 커버링 인덱스, 인덱스 무시 안티패턴 |
+| `SqlTuning.jsx` | SQL 튜닝 기법 | Sargable 쿼리, JOIN 최적화, 서브쿼리→JOIN 변환, 커서 기반 페이징, COUNT/ORDER BY 최적화, 안티패턴 |
+| `ServerTuning.jsx` | DB 서버 튜닝 | InnoDB Buffer Pool, flush_log_at_trx_commit, 커넥션 관리, 세션 버퍼, 모니터링 쿼리, my.cnf 예시 |
+| `TuningCaseStudy.jsx` | 튜닝 실전 사례 | 5단계 프로세스, Before/After 5개 사례(게시판/통계/페이징/날짜함수/락), 종합 체크리스트 |
+
+### 수정 파일 (4개)
+
+| 파일 | 변경 내용 |
+|------|-----------|
+| `site.js` | menuItems에 "DB 튜닝" 드롭다운 메뉴 추가 (5개 항목), footerLinks에 링크 추가 |
+| `translations.js` | ko/en 번역 키 추가 (tuning, tuningExplain, tuningIndex, tuningSql, tuningServer, tuningCase) |
+| `PublicLayout.jsx` | 6개 lazy import + 6개 라우트 추가 (/tuning/*) |
+| `Home.jsx` | "DB 튜닝" 카드 섹션 추가 (DB 웹 연동과 SQL 커리큘럼 사이, 3열 그리드) |
+
+### 메뉴 구조 변경
+```
+홈 | DB 개론 ▼ | DB 서비스 종류 ▼ | DB 웹 연동 ▼ | SQL 학습 ▼ | DB 튜닝 ▼ | 참고자료
+                                                               ├ 실행 계획 분석
+                                                               ├ 인덱스 튜닝
+                                                               ├ SQL 튜닝 기법
+                                                               ├ DB 서버 튜닝
+                                                               └ 튜닝 실전 사례
+```
+
+---
+
 ## 2026-03-14 (Day 1-3) — "DB 웹 연동" 메뉴 추가
 
 ### 추가 배경
