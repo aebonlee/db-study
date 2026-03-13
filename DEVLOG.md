@@ -13,7 +13,42 @@
 
 ---
 
-## 2026-03-14 (Day 1) — 프로젝트 생성 및 전체 사이트 완성
+## 2026-03-14 (Day 1-2) — "DB 서비스 종류" 메뉴 추가
+
+### 추가 배경
+DB 개론 메뉴 옆에 다양한 데이터베이스 서비스 종류를 학습할 수 있는 새로운 메뉴 섹션을 추가.
+
+### 생성 파일 (5개 페이지)
+
+| 파일 | 페이지 | 내용 |
+|------|--------|------|
+| `DbServices.jsx` | 목차 | 4개 서비스 카드 그리드 |
+| `RdbmsCompare.jsx` | 관계형 DB 비교 | MySQL, PostgreSQL, Oracle, SQL Server, SQLite 특징/장단점/선택 가이드 |
+| `NoSqlDb.jsx` | NoSQL 데이터베이스 | 문서형(MongoDB), 키-값형(Redis), 컬럼형(Cassandra), 그래프형(Neo4j) |
+| `CloudDb.jsx` | 클라우드 DB 서비스 | AWS RDS/Aurora/DynamoDB, GCP Cloud SQL/Spanner, Azure, Firebase vs Supabase, 서버리스 DB |
+| `NewSqlDb.jsx` | NewSQL & 특수목적 DB | CockroachDB, TimescaleDB, Elasticsearch, 벡터 DB(Pinecone, pgvector), Polyglot Persistence |
+
+### 수정 파일 (4개)
+
+| 파일 | 변경 내용 |
+|------|-----------|
+| `site.js` | menuItems에 "DB 서비스 종류" 드롭다운 메뉴 추가, footerLinks에 링크 추가 |
+| `translations.js` | ko/en 번역 키 추가 (services, rdbmsCompare, nosql, cloudDb, newsql) |
+| `PublicLayout.jsx` | 5개 라우트 추가 (/services, /services/rdbms-compare, /services/nosql, /services/cloud-db, /services/newsql) |
+| `Home.jsx` | "DB 서비스 종류" 카드 섹션 추가 (DB 개론과 SQL 커리큘럼 사이) |
+
+### 메뉴 구조 변경
+```
+홈 | DB 개론 ▼ | DB 서비스 종류 ▼ | SQL 학습 ▼ | 참고자료
+               ├ 관계형 DB 비교
+               ├ NoSQL 데이터베이스
+               ├ 클라우드 DB 서비스
+               └ NewSQL & 특수목적 DB
+```
+
+---
+
+## 2026-03-14 (Day 1-1) — 프로젝트 생성 및 전체 사이트 완성
 
 ### 1단계: 프로젝트 인프라 구축
 

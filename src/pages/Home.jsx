@@ -28,6 +28,13 @@ const Home = () => {
     { path: '/intro/rdbms',      title: '관계형 데이터베이스',  desc: '테이블, 키, 관계, SQL 개요',    icon: '🗃️' },
   ];
 
+  const serviceCards = [
+    { path: '/services/rdbms-compare', title: '관계형 DB 비교',      desc: 'MySQL, PostgreSQL, Oracle, SQL Server, SQLite', icon: '🏛️' },
+    { path: '/services/nosql',        title: 'NoSQL 데이터베이스',    desc: 'MongoDB, Redis, Cassandra, Neo4j',              icon: '🍃' },
+    { path: '/services/cloud-db',     title: '클라우드 DB 서비스',    desc: 'AWS RDS, Cloud SQL, Supabase, Firebase',        icon: '☁️' },
+    { path: '/services/newsql',       title: 'NewSQL & 특수목적 DB', desc: 'CockroachDB, Elasticsearch, 벡터 DB',            icon: '⚡' },
+  ];
+
   return (
     <>
       <SEOHead
@@ -78,6 +85,29 @@ const Home = () => {
           <p className="section-subtitle" data-aos="fade-up">데이터베이스의 기본 개념과 관계형 모델을 이해합니다.</p>
           <div className="curriculum-grid" style={{ gridTemplateColumns: 'repeat(2, 1fr)', maxWidth: '640px', margin: '0 auto' }}>
             {introCards.map((item, i) => (
+              <Link
+                to={item.path}
+                key={item.path}
+                className="curriculum-card"
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
+              >
+                <span className="curriculum-icon">{item.icon}</span>
+                <h3 className="curriculum-card-title">{item.title}</h3>
+                <p className="curriculum-card-desc">{item.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DB Services Cards */}
+      <section className="section curriculum-section">
+        <div className="container">
+          <h2 className="section-title" data-aos="fade-up">DB 서비스 종류</h2>
+          <p className="section-subtitle" data-aos="fade-up">다양한 데이터베이스 서비스의 종류와 특징을 비교합니다.</p>
+          <div className="curriculum-grid" style={{ gridTemplateColumns: 'repeat(2, 1fr)', maxWidth: '640px', margin: '0 auto' }}>
+            {serviceCards.map((item, i) => (
               <Link
                 to={item.path}
                 key={item.path}

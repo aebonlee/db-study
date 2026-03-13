@@ -8,6 +8,11 @@ import useTableScroller from '../hooks/useTableScroller';
 const Home = lazy(() => import('../pages/Home'));
 const WhatIsDB = lazy(() => import('../pages/WhatIsDB'));
 const RDBMS = lazy(() => import('../pages/RDBMS'));
+const DbServices = lazy(() => import('../pages/DbServices'));
+const RdbmsCompare = lazy(() => import('../pages/RdbmsCompare'));
+const NoSqlDb = lazy(() => import('../pages/NoSqlDb'));
+const CloudDb = lazy(() => import('../pages/CloudDb'));
+const NewSqlDb = lazy(() => import('../pages/NewSqlDb'));
 const SqlLesson = lazy(() => import('../pages/SqlLesson'));
 const SqlChapter1 = lazy(() => import('../pages/SqlChapter1'));
 const SqlChapter2 = lazy(() => import('../pages/SqlChapter2'));
@@ -45,6 +50,13 @@ const PublicLayout = () => {
             {/* DB Intro */}
             <Route path="/intro/what-is-db" element={<WhatIsDB />} />
             <Route path="/intro/rdbms" element={<RDBMS />} />
+
+            {/* DB Services */}
+            <Route path="/services" element={<DbServices />} />
+            <Route path="/services/rdbms-compare" element={<RdbmsCompare />} />
+            <Route path="/services/nosql" element={<NoSqlDb />} />
+            <Route path="/services/cloud-db" element={<CloudDb />} />
+            <Route path="/services/newsql" element={<NewSqlDb />} />
 
             {/* SQL Lessons */}
             <Route path="/sql" element={<SqlLesson />} />

@@ -30,6 +30,17 @@ const site = {
       ]
     },
     {
+      labelKey: 'site.nav.services',
+      path: '/services',
+      activePath: '/services',
+      dropdown: [
+        { path: '/services/rdbms-compare', labelKey: 'site.nav.rdbmsCompare' },
+        { path: '/services/nosql', labelKey: 'site.nav.nosql' },
+        { path: '/services/cloud-db', labelKey: 'site.nav.cloudDb' },
+        { path: '/services/newsql', labelKey: 'site.nav.newsql' },
+      ]
+    },
+    {
       labelKey: 'site.nav.sql',
       path: '/sql',
       activePath: '/sql',
@@ -55,6 +66,8 @@ const site = {
     { path: '/', labelKey: 'nav.home' },
     { path: '/intro/what-is-db', labelKey: 'site.nav.whatIsDB' },
     { path: '/intro/rdbms', labelKey: 'site.nav.rdbms' },
+    { path: '/services', labelKey: 'site.nav.services' },
+    { path: '/services/rdbms-compare', labelKey: 'site.nav.rdbmsCompare' },
     { path: '/sql', labelKey: 'site.nav.sql' },
     { path: '/sql/setup', labelKey: 'site.nav.sqlSetup' },
     { path: '/sql/join', labelKey: 'site.nav.sqlJoin' },
