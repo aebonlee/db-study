@@ -95,7 +95,15 @@ const site = {
         { path: '/oracle/parallel-wait', labelKey: 'site.nav.oracleParallelWait' },
       ]
     },
-    { path: '/exam', labelKey: 'site.nav.exam', activePath: '/exam' },
+    {
+      labelKey: 'site.nav.exam',
+      path: '/exam',
+      activePath: '/exam',
+      dropdown: [
+        { path: '/exam/basic', labelKey: 'site.nav.examBasic' },
+        { path: '/exam/intermediate', labelKey: 'site.nav.examInter' },
+      ]
+    },
     { path: '/references', labelKey: 'site.nav.references', activePath: '/references' },
     { path: '/training', labelKey: 'site.nav.training', activePath: '/training' }
   ],

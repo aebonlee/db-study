@@ -46,6 +46,8 @@ const SqlChapter10 = lazy(() => import('../pages/SqlChapter10'));
 const SqlChapter11 = lazy(() => import('../pages/SqlChapter11'));
 const SqlChapter12 = lazy(() => import('../pages/SqlChapter12'));
 const DbExam = lazy(() => import('../pages/DbExam'));
+const DbExamBasic = lazy(() => import('../pages/DbExamBasic'));
+const DbExamInter = lazy(() => import('../pages/DbExamInter'));
 const References = lazy(() => import('../pages/References'));
 const Training = lazy(() => import('../pages/Training'));
 const NotFound = lazy(() => import('../pages/NotFound'));
@@ -121,6 +123,8 @@ const PublicLayout = () => {
 
             {/* DB Exam */}
             <Route path="/exam" element={<DbExam />} />
+            <Route path="/exam/basic" element={<DbExamBasic />} />
+            <Route path="/exam/intermediate" element={<DbExamInter />} />
 
             {/* References */}
             <Route path="/references" element={<References />} />
