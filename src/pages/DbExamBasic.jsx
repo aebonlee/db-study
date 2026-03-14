@@ -242,13 +242,15 @@ const DbExamBasic = () => {
 
               {q.type === 'multiple' ? (
                 <div className="exam-options">
-                  {q.opts.map(opt => {
+                  {q.opts.map((opt, oi) => {
                     const val = opt.charAt(0);
+                    const label = opt.substring(3);
                     return (
                       <label key={val} className={`exam-option ${answers[cur] === val ? 'exam-option--sel' : ''}`}>
                         <input type="radio" name={`q${cur}`} checked={answers[cur] === val}
                           onChange={() => saveAnswer(val)} />
-                        {opt}
+                        <span className="exam-option-num">{'①②③④'[oi]}</span>
+                        {label}
                       </label>
                     );
                   })}

@@ -303,6 +303,7 @@ const DbExamInter = () => {
                     <label key={oi} className={`exam-option ${answers[cur] === oi ? 'exam-option--sel' : ''}`}>
                       <input type="radio" name={`q${cur}`} checked={answers[cur] === oi}
                         onChange={() => saveAnswer(oi)} />
+                      <span className="exam-option-num">{'①②③④'[oi]}</span>
                       {opt}
                     </label>
                   ))}

@@ -538,7 +538,7 @@
 @keyframes blink { 50% { opacity: .4; } }
 /* sidebar layout — 2:5:3 (문항:문제:가이드) */
 .exam-sidebar-layout { display: grid; grid-template-columns: 2fr 5fr 3fr; gap: 20px; align-items: start; }
-.exam-sidebar { position: sticky; top: 80px; display: flex; flex-direction: column; gap: 16px; }
+.exam-sidebar { position: sticky; top: 80px; display: flex; flex-direction: column; gap: 12px; background: var(--bg-secondary); border: 2px solid var(--border-color); border-radius: 14px; padding: 14px; }
 .exam-nav-section { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; }
 .exam-nav-section h4 { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 10px; text-transform: uppercase; letter-spacing: .5px; }
 .exam-nav-buttons { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; }
@@ -554,9 +554,9 @@
 .exam-progress-track { height: 6px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden; margin-top: 8px; }
 .exam-progress-fill { height: 100%; background: var(--primary-blue); border-radius: 3px; transition: width .3s; }
 /* question area */
-.exam-question-area { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 28px; }
+.exam-question-area { background: var(--card-bg); border: 2px solid var(--border-color); border-radius: 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
 .exam-q-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-.exam-q-num { font-size: 1.1rem; font-weight: 700; color: var(--primary-blue); }
+.exam-q-num { font-size: 0.95rem; font-weight: 700; color: #fff; background: var(--primary-blue); padding: 5px 16px; border-radius: 20px; }
 .exam-q-meta { font-size: 0.85rem; color: var(--text-secondary); background: var(--bg-secondary); padding: 4px 12px; border-radius: 20px; }
 .exam-q-text { font-size: 1rem; line-height: 1.7; margin-bottom: 20px; color: var(--text-primary); }
 .exam-schema { background: var(--bg-secondary); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
@@ -565,7 +565,9 @@
 .exam-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
 .exam-option { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border: 2px solid var(--border-color); border-radius: 10px; cursor: pointer; transition: border-color .15s, background .15s; font-size: 0.95rem; }
 .exam-option input { display: none; }
+.exam-option-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: var(--bg-secondary); color: var(--primary-blue); font-weight: 700; font-size: 1rem; flex-shrink: 0; }
 .exam-option--sel { border-color: var(--primary-blue); background: rgba(0,70,200,.06); }
+.exam-option--sel .exam-option-num { background: var(--primary-blue); color: #fff; }
 .exam-textarea { width: 100%; padding: 12px 16px; border: 2px solid var(--border-color); border-radius: 10px; font-size: 0.95rem; line-height: 1.6; resize: vertical; background: var(--card-bg); color: var(--text-primary); margin-bottom: 20px; box-sizing: border-box; }
 .exam-textarea:focus { border-color: var(--primary-blue); outline: none; }
 .exam-textarea--sql { font-family: 'Courier New', monospace; }
@@ -618,7 +620,7 @@
 .exam-result-actions { display: flex; gap: 12px; justify-content: center; }
 /* guide panel — 3rd column */
 .exam-guide-area { position: sticky; top: 80px; }
-.exam-guide-panel { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; height: fit-content; }
+.exam-guide-panel { background: var(--card-bg); border: 2px solid var(--border-color); border-radius: 14px; padding: 20px; height: fit-content; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
 .exam-guide-panel h4 { font-size: 0.85rem; color: var(--primary-blue); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
 .exam-guide-content { padding: 16px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; }
 .exam-guide-content pre { font-size: 0.82rem; line-height: 1.8; white-space: pre-wrap; word-break: keep-all; margin: 0; color: #166534; font-family: inherit; }
