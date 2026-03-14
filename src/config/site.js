@@ -95,6 +95,7 @@ const site = {
         { path: '/oracle/parallel-wait', labelKey: 'site.nav.oracleParallelWait' },
       ]
     },
+    { path: '/exam', labelKey: 'site.nav.exam', activePath: '/exam' },
     { path: '/references', labelKey: 'site.nav.references', activePath: '/references' },
     { path: '/training', labelKey: 'site.nav.training', activePath: '/training' }
   ],
