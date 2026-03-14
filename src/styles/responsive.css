@@ -109,14 +109,6 @@
         gap: 40px;
     }
 
-    .footer-content {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .footer-info {
-        grid-template-columns: 1fr 1fr;
-    }
-
     .reviews-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -484,21 +476,6 @@
 
     .placeholder-text {
         font-size: 24px;
-    }
-
-    /* Footer */
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .footer-links ul {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .footer-info {
-        grid-template-columns: 1fr;
-        gap: 24px;
     }
 
     /* Reviews */

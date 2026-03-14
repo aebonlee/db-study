@@ -13,6 +13,32 @@
 
 ---
 
+## 2026-03-14 (Day 1-9) — 푸터 디자인 개선
+
+### 변경 배경
+푸터의 바로가기 메뉴가 너무 많고, 연락처 영역과 바로가기 영역의 디자인 통일성 부족, 로고가 어두워서 안 보이는 문제 개선.
+
+### 변경 내용
+
+| 항목 | 변경 전 | 변경 후 |
+|------|---------|---------|
+| 로고 | `brand-dream`/`brand-it` 클래스 (어두운 색) | 그라데이션 텍스트 (`primary-gradient` + `background-clip: text`) |
+| 바로가기 | 18개 링크 나열 | 핵심 5개로 축소 (SQL 학습, DB 튜닝, Oracle 튜닝, 참고자료, 교육신청) |
+| 연락처 | 이모지 아이콘 + p 태그 | SVG 아이콘 + flex row 레이아웃 통일 |
+| 구조 | `footer-info` 3열 | `footer-grid` 3열 (브랜드 1.5fr / 바로가기 1fr / 연락처 1.2fr) |
+| CSS | 기존 footer-content/footer-info 등 미사용 규칙 잔존 | footer.css 전면 재작성, responsive.css 미사용 규칙 제거 |
+
+### 수정 파일
+
+| 파일 | 변경 내용 |
+|------|-----------|
+| `Footer.jsx` | 3열 구조 전면 재작성 (로고 그라데이션, SVG 아이콘 연락처, 축소된 바로가기) |
+| `footer.css` | 전면 재작성 (footer-grid, footer-logo-highlight, footer-contact-row 등) |
+| `site.js` | footerLinks 18개 → 5개로 축소 |
+| `responsive.css` | 미사용 footer-content/footer-info 반응형 규칙 제거 |
+
+---
+
 ## 2026-03-14 (Day 1-8) — 홈 메뉴 삭제, 교육신청 메뉴 추가, 푸터 리디자인
 
 ### 변경 내용

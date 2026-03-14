@@ -100,24 +100,11 @@ const site = {
   ],
 
   footerLinks: [
-    { path: '/intro/what-is-db', labelKey: 'site.nav.whatIsDB' },
-    { path: '/intro/rdbms', labelKey: 'site.nav.rdbms' },
-    { path: '/services', labelKey: 'site.nav.services' },
-    { path: '/services/rdbms-compare', labelKey: 'site.nav.rdbmsCompare' },
-    { path: '/web', labelKey: 'site.nav.webIntegration' },
-    { path: '/web/architecture', labelKey: 'site.nav.webArchitecture' },
-    { path: '/web/node-mysql', labelKey: 'site.nav.nodeMysql' },
-    { path: '/tuning', labelKey: 'site.nav.tuning' },
-    { path: '/tuning/explain', labelKey: 'site.nav.tuningExplain' },
-    { path: '/oracle', labelKey: 'site.nav.oracle' },
-    { path: '/oracle/sql-processing', labelKey: 'site.nav.oracleSqlProcessing' },
-    { path: '/oracle/execution-plan', labelKey: 'site.nav.oracleExecutionPlan' },
     { path: '/sql', labelKey: 'site.nav.sql' },
-    { path: '/sql/setup', labelKey: 'site.nav.sqlSetup' },
-    { path: '/sql/join', labelKey: 'site.nav.sqlJoin' },
-    { path: '/sql/design', labelKey: 'site.nav.sqlDesign' },
+    { path: '/tuning', labelKey: 'site.nav.tuning' },
+    { path: '/oracle', labelKey: 'site.nav.oracle' },
     { path: '/references', labelKey: 'site.nav.references' },
-    { path: '/training', labelKey: 'site.nav.training' }
+    { path: '/training', labelKey: 'site.nav.training' },
   ],
 
   familySites: [
