@@ -13,6 +13,9 @@ const Footer = () => {
     }
   };
 
+  /* 상단 메뉴에서 드롭다운 없는 단순 링크만 추출 */
+  const navLinks = site.menuItems.filter(item => !item.dropdown && item.path !== '/');
+
   return (
     <footer className="footer">
       <div className="container">
@@ -33,13 +36,13 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links — 상단 메뉴 기반 2열 */}
           <div className="footer-section">
             <h4 className="footer-heading">{t('footer.quickLinks')}</h4>
-            <ul className="footer-quick-links">
-              {site.footerLinks.map((link, i) => (
+            <ul className="footer-nav-links">
+              {site.menuItems.filter(item => item.path !== '/').map((item, i) => (
                 <li key={i}>
-                  <Link to={link.path}>{t(link.labelKey)}</Link>
+                  <Link to={item.path}>{t(item.labelKey)}</Link>
                 </li>
               ))}
             </ul>

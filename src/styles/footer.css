@@ -89,7 +89,29 @@
     letter-spacing: 0.02em;
 }
 
-/* ─── Quick Links ─── */
+/* ─── Nav Links (2-column) ─── */
+.footer-nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+}
+
+.footer-nav-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+    line-height: 1.6;
+}
+
+.footer-nav-links a:hover {
+    color: #93C5FD;
+}
+
+/* ─── Quick Links (legacy) ─── */
 .footer-quick-links {
     list-style: none;
     padding: 0;
