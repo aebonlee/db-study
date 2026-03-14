@@ -536,8 +536,8 @@
 .exam-timer { font-size: 1.4rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 .exam-timer--warn { color: #ef4444; animation: blink 1s infinite; }
 @keyframes blink { 50% { opacity: .4; } }
-/* sidebar layout */
-.exam-sidebar-layout { display: grid; grid-template-columns: 260px 1fr; gap: 24px; align-items: start; }
+/* sidebar layout — 2:5:3 (문항:문제:가이드) */
+.exam-sidebar-layout { display: grid; grid-template-columns: 2fr 5fr 3fr; gap: 20px; align-items: start; }
 .exam-sidebar { position: sticky; top: 80px; display: flex; flex-direction: column; gap: 16px; }
 .exam-nav-section { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; }
 .exam-nav-section h4 { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 10px; text-transform: uppercase; letter-spacing: .5px; }
@@ -616,17 +616,19 @@
 .exam-detail-correct { border-left: 3px solid #22c55e; }
 .exam-explanation { margin-top: 8px; padding: 12px 16px; background: #eff6ff; border-left: 3px solid var(--primary-blue); border-radius: 0 8px 8px 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-primary); }
 .exam-result-actions { display: flex; gap: 12px; justify-content: center; }
-/* guide panel */
-.exam-guide-panel { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; }
-.exam-guide-toggle { width: 100%; padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 8px; background: #eff6ff; color: var(--primary-blue); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all .15s; }
-.exam-guide-toggle:hover { background: #dbeafe; }
-.exam-guide-content { margin-top: 12px; padding: 14px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; }
-.exam-guide-content pre { font-size: 0.82rem; line-height: 1.7; white-space: pre-wrap; word-break: keep-all; margin: 0; color: #166534; font-family: inherit; }
+/* guide panel — 3rd column */
+.exam-guide-area { position: sticky; top: 80px; }
+.exam-guide-panel { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; height: fit-content; }
+.exam-guide-panel h4 { font-size: 0.85rem; color: var(--primary-blue); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+.exam-guide-content { padding: 16px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; }
+.exam-guide-content pre { font-size: 0.82rem; line-height: 1.8; white-space: pre-wrap; word-break: keep-all; margin: 0; color: #166534; font-family: inherit; }
+.exam-guide-empty { font-size: 0.85rem; color: var(--text-secondary); text-align: center; padding: 24px 8px; }
 @media (max-width: 768px) {
   .exam-level-grid { grid-template-columns: 1fr; }
   .exam-info-grid { grid-template-columns: repeat(2, 1fr); }
   .exam-sidebar-layout { grid-template-columns: 1fr; }
   .exam-sidebar { position: static; }
+  .exam-guide-area { position: static; }
   .exam-nav-buttons { grid-template-columns: repeat(10, 1fr); }
   .exam-start-form { flex-direction: column; align-items: center; }
   .exam-result-summary { flex-direction: column; text-align: center; }

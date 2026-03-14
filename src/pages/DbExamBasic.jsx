@@ -87,7 +87,6 @@ const DbExamBasic = () => {
   const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
   const [results, setResults] = useState(null);
   const [showConfirm, setShowConfirm] = useState(false);
-  const [showGuide, setShowGuide] = useState(false);
   const [activeTab, setActiveTab] = useState('A형');
   const timerRef = useRef(null);
 
@@ -228,17 +227,6 @@ const DbExamBasic = () => {
                   <div className="exam-progress-fill" style={{ width: `${(getAnsweredCount()/questions.length)*100}%` }} />
                 </div>
               </div>
-              {/* 학습 가이드 */}
-              <div className="exam-guide-panel">
-                <button className="exam-guide-toggle" onClick={() => setShowGuide(!showGuide)}>
-                  {showGuide ? '📖 가이드 닫기' : '📖 가이드 열기'}
-                </button>
-                {showGuide && q.guide && (
-                  <div className="exam-guide-content">
-                    <pre>{q.guide}</pre>
-                  </div>
-                )}
-              </div>
             </div>
 
             {/* 문제 영역 */}
@@ -280,6 +268,20 @@ const DbExamBasic = () => {
                   <button className="exam-ctrl-btn exam-ctrl-btn--next" onClick={() => setCur(cur + 1)}>다음</button>
                 ) : (
                   <button className="exam-ctrl-btn exam-ctrl-btn--submit" onClick={() => setShowConfirm(true)}>제출</button>
+                )}
+              </div>
+            </div>
+
+            {/* 학습 가이드 */}
+            <div className="exam-guide-area">
+              <div className="exam-guide-panel">
+                <h4>📖 학습 가이드</h4>
+                {q.guide ? (
+                  <div className="exam-guide-content">
+                    <pre>{q.guide}</pre>
+                  </div>
+                ) : (
+                  <p className="exam-guide-empty">이 문제에 대한 가이드가 없습니다.</p>
                 )}
               </div>
             </div>
