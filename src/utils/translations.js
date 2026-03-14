@@ -71,6 +71,10 @@ export const translations = {
       sql: {
         title: 'SQL 학습',
         subtitle: '기초부터 고급까지, 12개 챕터로 배우는 SQL'
+      },
+      ref: {
+        title: '참고자료',
+        subtitle: '참고자료 목록'
       }
     },
     footer: {
@@ -150,6 +154,10 @@ export const translations = {
       sql: {
         title: 'SQL Course',
         subtitle: 'Learn SQL from basics to advanced in 12 chapters'
+      },
+      ref: {
+        title: 'References',
+        subtitle: 'Reference Materials'
       }
     },
     footer: {
