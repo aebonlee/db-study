@@ -13,6 +13,58 @@
 
 ---
 
+## 2026-03-14 (Day 1-8) — 홈 메뉴 삭제, 교육신청 메뉴 추가, 푸터 리디자인
+
+### 변경 내용
+
+#### 1. 네비게이션 "홈" 메뉴 삭제
+- `site.js` menuItems에서 `{ path: '/', labelKey: 'nav.home' }` 항목 제거
+- footerLinks에서도 홈 링크 제거
+- 로고 클릭으로 홈 이동 가능하므로 별도 메뉴 불필요
+
+#### 2. "교육신청" 메뉴 및 페이지 추가
+- **참고**: https://html.dreamitbiz.com 교육신청 페이지 디자인
+- 네비게이션 마지막에 "교육신청" 메뉴 추가 (`/training`)
+
+| 파일 | 변경 내용 |
+|------|-----------|
+| `Training.jsx` | 신규 — 4개 과정 카드(바이브코딩 기초/UI·UX/풀스택AI/맞춤과정) + 교육 문의 연락처 |
+| `site.js` | menuItems/footerLinks에 training 추가 |
+| `translations.js` | ko: '교육신청', en: 'Apply' 추가 |
+| `PublicLayout.jsx` | Training lazy import + `/training` 라우트 추가 |
+| `site.css` | training-grid, training-card, training-badge, training-contact 등 CSS 추가 |
+
+#### 3. 푸터 리디자인
+- **참고**: https://html.dreamitbiz.com 푸터 디자인
+- 2열 구조(브랜드+링크) → 3열 구조(브랜드+연락처+바로가기)로 변경
+- 연락처 정보 추가 (이메일, 전화, 카카오톡, 운영시간)
+- Family Site 드롭다운 추가
+- 하단 사업자 정보 추가 (사업자등록번호, 통신판매신고번호, 출판사 신고번호)
+
+| 파일 | 변경 내용 |
+|------|-----------|
+| `Footer.jsx` | 3열 구조로 전면 재작성 |
+| `footer.css` | footer-quick-links 스타일 추가 |
+
+---
+
+## 2026-03-14 (Day 1-7) — SQL 챕터 번호 형식 변경
+
+### 변경 내용
+SQL 하위 메뉴 및 페이지 제목의 번호 형식을 `X장` → `0X.`으로 변경.
+
+| 위치 | 변경 전 | 변경 후 |
+|------|---------|---------|
+| 네비게이션 메뉴 (ko) | 1장. 환경 구축 | 01. 환경 구축 |
+| 네비게이션 메뉴 (en) | Ch.1 Setup | 01. Setup |
+| SQL 목차 페이지 | 1장 | 01. |
+| 홈 카드 | 1장 | 01. |
+| 각 챕터 페이지 h1 | 1장. ~ 12장. | 01. ~ 12. |
+
+수정 파일: `translations.js`, `SqlLesson.jsx`, `Home.jsx`, `SqlChapter1~12.jsx` (총 15개)
+
+---
+
 ## 2026-03-14 (Day 1-6) — DB 튜닝 / Oracle 튜닝 목차 페이지 디자인 개선
 
 ### 변경 배경

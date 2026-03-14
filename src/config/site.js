@@ -19,7 +19,6 @@ const site = {
   themeColor: '#0046C8',
 
   menuItems: [
-    { path: '/', labelKey: 'nav.home' },
     {
       labelKey: 'site.nav.intro',
       path: '/intro/what-is-db',
@@ -96,11 +95,11 @@ const site = {
         { path: '/oracle/parallel-wait', labelKey: 'site.nav.oracleParallelWait' },
       ]
     },
-    { path: '/references', labelKey: 'site.nav.references', activePath: '/references' }
+    { path: '/references', labelKey: 'site.nav.references', activePath: '/references' },
+    { path: '/training', labelKey: 'site.nav.training', activePath: '/training' }
   ],
 
   footerLinks: [
-    { path: '/', labelKey: 'nav.home' },
     { path: '/intro/what-is-db', labelKey: 'site.nav.whatIsDB' },
     { path: '/intro/rdbms', labelKey: 'site.nav.rdbms' },
     { path: '/services', labelKey: 'site.nav.services' },
@@ -117,7 +116,8 @@ const site = {
     { path: '/sql/setup', labelKey: 'site.nav.sqlSetup' },
     { path: '/sql/join', labelKey: 'site.nav.sqlJoin' },
     { path: '/sql/design', labelKey: 'site.nav.sqlDesign' },
-    { path: '/references', labelKey: 'site.nav.references' }
+    { path: '/references', labelKey: 'site.nav.references' },
+    { path: '/training', labelKey: 'site.nav.training' }
   ],
 
   familySites: [

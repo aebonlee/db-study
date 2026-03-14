@@ -46,6 +46,7 @@ const SqlChapter10 = lazy(() => import('../pages/SqlChapter10'));
 const SqlChapter11 = lazy(() => import('../pages/SqlChapter11'));
 const SqlChapter12 = lazy(() => import('../pages/SqlChapter12'));
 const References = lazy(() => import('../pages/References'));
+const Training = lazy(() => import('../pages/Training'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
 const Loading = () => (
@@ -119,6 +120,9 @@ const PublicLayout = () => {
 
             {/* References */}
             <Route path="/references" element={<References />} />
+
+            {/* Training */}
+            <Route path="/training" element={<Training />} />
 
             {/* 404 */}
             <Route path="*" element={<NotFound />} />
