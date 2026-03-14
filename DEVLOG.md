@@ -13,6 +13,37 @@
 
 ---
 
+## 2026-03-14 (Day 1-15) — Open Graph 메타 태그 정비
+
+### 변경 내용
+
+- OG URL을 커스텀 도메인(`db-study.dreamitbiz.com`)으로 변경
+- OG 이미지를 SVG → PNG(1200x630)로 변환 생성 (카카오/SNS 미리보기 호환)
+- `index.html` + `SEOHead.jsx`의 `og:url`, `og:image`, `twitter:image` URL 일괄 수정
+- 참고자료 페이지 타이틀 번역 키(`site.ref.title/subtitle`) 추가
+
+### Open Graph 설정
+
+| 항목 | 값 |
+|------|-----|
+| og:url | `https://db-study.dreamitbiz.com` |
+| og:title | `DB Study \| 데이터베이스 & SQL 학습` |
+| og:description | 데이터베이스와 SQL을 기초부터 고급까지 체계적으로 학습하는 교육 플랫폼 |
+| og:type | website |
+| og:image | `https://db-study.dreamitbiz.com/og-image.png` (1200x630) |
+| og:site_name | DB Study |
+
+### 수정 파일
+
+| 파일 | 변경 내용 |
+|------|-----------|
+| `index.html` | OG URL 3곳 커스텀 도메인으로 변경 |
+| `SEOHead.jsx` | BASE URL 커스텀 도메인으로 변경 |
+| `public/og-image.png` | **신규** — SVG를 PNG로 변환 (sharp) |
+| `translations.js` | `site.ref.title/subtitle` 추가 |
+
+---
+
 ## 2026-03-14 (Day 1-14) — 실력테스트 UI 개선 (영역 구분, 보기 번호, 문제 번호)
 
 ### 변경 내용

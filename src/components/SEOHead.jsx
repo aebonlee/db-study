@@ -2,7 +2,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const SEOHead = ({ title, description, path = '', ogImage, noindex = false }) => {
   const SITE = 'DB Study | 데이터베이스 & SQL 학습';
-  const BASE = 'https://aebonlee.github.io/db-study';
+  const BASE = 'https://db-study.dreamitbiz.com';
   const DEFAULT_DESC = '데이터베이스와 SQL을 기초부터 고급까지 체계적으로 학습하는 교육 플랫폼';
   const fullTitle = title ? `${title} | ${SITE}` : SITE;
   const desc = description || DEFAULT_DESC;
