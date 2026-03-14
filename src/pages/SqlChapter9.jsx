@@ -4,7 +4,7 @@ const SqlChapter9 = () => (
   <>
     <section className="page-header">
       <div className="container">
-        <h1>9장. JOIN</h1>
+        <h1>09. JOIN</h1>
         <p>INNER, LEFT, RIGHT, FULL OUTER, CROSS, Self JOIN</p>
       </div>
     </section>

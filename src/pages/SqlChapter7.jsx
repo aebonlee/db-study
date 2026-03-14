@@ -4,7 +4,7 @@ const SqlChapter7 = () => (
   <>
     <section className="page-header">
       <div className="container">
-        <h1>7장. 데이터 조작 (DML)</h1>
+        <h1>07. 데이터 조작 (DML)</h1>
         <p>INSERT, UPDATE, DELETE</p>
       </div>
     </section>

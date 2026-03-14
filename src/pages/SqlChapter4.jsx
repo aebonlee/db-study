@@ -4,7 +4,7 @@ const SqlChapter4 = () => (
   <>
     <section className="page-header">
       <div className="container">
-        <h1>4장. 정렬과 제한</h1>
+        <h1>04. 정렬과 제한</h1>
         <p>ORDER BY, LIMIT, OFFSET, DISTINCT</p>
       </div>
     </section>

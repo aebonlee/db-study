@@ -4,7 +4,7 @@ const SqlChapter8 = () => (
   <>
     <section className="page-header">
       <div className="container">
-        <h1>8장. 테이블 정의 (DDL)</h1>
+        <h1>08. 테이블 정의 (DDL)</h1>
         <p>CREATE TABLE, ALTER, DROP, 자료형, 제약조건</p>
       </div>
     </section>

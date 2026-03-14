@@ -4,7 +4,7 @@ const SqlChapter5 = () => (
   <>
     <section className="page-header">
       <div className="container">
-        <h1>5장. 함수와 표현식</h1>
+        <h1>05. 함수와 표현식</h1>
         <p>문자열, 숫자, 날짜 함수, CASE, NULL 처리</p>
       </div>
     </section>

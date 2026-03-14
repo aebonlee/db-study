@@ -4,7 +4,7 @@ const SqlChapter1 = () => (
   <>
     <section className="page-header">
       <div className="container">
-        <h1>1장. SQL 환경 구축</h1>
+        <h1>01. SQL 환경 구축</h1>
         <p>MySQL 설치, DBeaver 설정, 샘플 데이터베이스 구성</p>
       </div>
     </section>

@@ -4,7 +4,7 @@ const SqlChapter6 = () => (
   <>
     <section className="page-header">
       <div className="container">
-        <h1>6장. 데이터 집계</h1>
+        <h1>06. 데이터 집계</h1>
         <p>COUNT, SUM, AVG, MIN, MAX, GROUP BY, HAVING</p>
       </div>
     </section>

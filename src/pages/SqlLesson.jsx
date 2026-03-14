@@ -44,7 +44,7 @@ const SqlLesson = () => {
                 data-aos="fade-up"
                 data-aos-delay={i * 50}
               >
-                <span className="curriculum-step">{w.ch}장</span>
+                <span className="curriculum-step">{String(w.ch).padStart(2, '0')}.</span>
                 <span className="curriculum-icon">{w.icon}</span>
                 <h3 className="curriculum-card-title">{w.title}</h3>
                 <p className="curriculum-card-desc">{w.desc}</p>

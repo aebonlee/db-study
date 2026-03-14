@@ -4,7 +4,7 @@ const SqlChapter3 = () => (
   <>
     <section className="page-header">
       <div className="container">
-        <h1>3장. WHERE 조건절</h1>
+        <h1>03. WHERE 조건절</h1>
         <p>WHERE, 비교연산자, AND/OR, LIKE, IN, BETWEEN</p>
       </div>
     </section>

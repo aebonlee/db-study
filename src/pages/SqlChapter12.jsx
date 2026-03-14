@@ -4,7 +4,7 @@ const SqlChapter12 = () => (
   <>
     <section className="page-header">
       <div className="container">
-        <h1>12장. DB 설계</h1>
+        <h1>12. DB 설계</h1>
         <p>정규화, ERD, 데이터 모델링, 트랜잭션</p>
       </div>
     </section>

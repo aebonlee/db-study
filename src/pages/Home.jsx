@@ -9,18 +9,18 @@ const Home = () => {
   useAOS();
 
   const chapters = [
-    { path: '/sql/setup',     title: 'SQL 환경 구축',          desc: 'MySQL 설치, DBeaver, 샘플 DB 구성',      icon: '🖥️', step: '1장' },
-    { path: '/sql/select',    title: 'SELECT 기초',           desc: 'SELECT, FROM, 컬럼 선택, 별칭(AS)',       icon: '🔍', step: '2장' },
-    { path: '/sql/where',     title: 'WHERE 조건절',          desc: 'WHERE, 비교연산자, AND/OR, LIKE, IN',     icon: '🎯', step: '3장' },
-    { path: '/sql/sort',      title: '정렬과 제한',            desc: 'ORDER BY, LIMIT, OFFSET, DISTINCT',      icon: '📊', step: '4장' },
-    { path: '/sql/function',  title: '함수와 표현식',           desc: '문자열, 숫자, 날짜 함수, CASE, NULL',      icon: '⚙️', step: '5장' },
-    { path: '/sql/aggregate', title: '데이터 집계',            desc: 'COUNT, SUM, AVG, GROUP BY, HAVING',      icon: '📈', step: '6장' },
-    { path: '/sql/dml',       title: '데이터 조작(DML)',       desc: 'INSERT, UPDATE, DELETE',                  icon: '✏️', step: '7장' },
-    { path: '/sql/ddl',       title: '테이블 정의(DDL)',       desc: 'CREATE, ALTER, DROP, 자료형, 제약조건',     icon: '🏗️', step: '8장' },
-    { path: '/sql/join',      title: 'JOIN',                  desc: 'INNER, LEFT, RIGHT, FULL, CROSS JOIN',   icon: '🔗', step: '9장' },
-    { path: '/sql/subquery',  title: '서브쿼리',              desc: '스칼라, 인라인 뷰, EXISTS, IN',             icon: '🔄', step: '10장' },
-    { path: '/sql/advanced',  title: '고급 SQL',              desc: '윈도우 함수, CTE, 뷰, 인덱스',              icon: '🚀', step: '11장' },
-    { path: '/sql/design',    title: 'DB 설계',               desc: '정규화, ERD, 모델링, 트랜잭션',              icon: '📐', step: '12장' },
+    { path: '/sql/setup',     title: 'SQL 환경 구축',          desc: 'MySQL 설치, DBeaver, 샘플 DB 구성',      icon: '🖥️', step: '01.' },
+    { path: '/sql/select',    title: 'SELECT 기초',           desc: 'SELECT, FROM, 컬럼 선택, 별칭(AS)',       icon: '🔍', step: '02.' },
+    { path: '/sql/where',     title: 'WHERE 조건절',          desc: 'WHERE, 비교연산자, AND/OR, LIKE, IN',     icon: '🎯', step: '03.' },
+    { path: '/sql/sort',      title: '정렬과 제한',            desc: 'ORDER BY, LIMIT, OFFSET, DISTINCT',      icon: '📊', step: '04.' },
+    { path: '/sql/function',  title: '함수와 표현식',           desc: '문자열, 숫자, 날짜 함수, CASE, NULL',      icon: '⚙️', step: '05.' },
+    { path: '/sql/aggregate', title: '데이터 집계',            desc: 'COUNT, SUM, AVG, GROUP BY, HAVING',      icon: '📈', step: '06.' },
+    { path: '/sql/dml',       title: '데이터 조작(DML)',       desc: 'INSERT, UPDATE, DELETE',                  icon: '✏️', step: '07.' },
+    { path: '/sql/ddl',       title: '테이블 정의(DDL)',       desc: 'CREATE, ALTER, DROP, 자료형, 제약조건',     icon: '🏗️', step: '08.' },
+    { path: '/sql/join',      title: 'JOIN',                  desc: 'INNER, LEFT, RIGHT, FULL, CROSS JOIN',   icon: '🔗', step: '09.' },
+    { path: '/sql/subquery',  title: '서브쿼리',              desc: '스칼라, 인라인 뷰, EXISTS, IN',             icon: '🔄', step: '10.' },
+    { path: '/sql/advanced',  title: '고급 SQL',              desc: '윈도우 함수, CTE, 뷰, 인덱스',              icon: '🚀', step: '11.' },
+    { path: '/sql/design',    title: 'DB 설계',               desc: '정규화, ERD, 모델링, 트랜잭션',              icon: '📐', step: '12.' },
   ];
 
   const introCards = [

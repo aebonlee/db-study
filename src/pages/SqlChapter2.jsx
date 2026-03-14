@@ -4,7 +4,7 @@ const SqlChapter2 = () => (
   <>
     <section className="page-header">
       <div className="container">
-        <h1>2장. SELECT 기초</h1>
+        <h1>02. SELECT 기초</h1>
         <p>SELECT, FROM, 컬럼 선택, 별칭(AS)</p>
       </div>
     </section>

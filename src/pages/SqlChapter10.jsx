@@ -4,7 +4,7 @@ const SqlChapter10 = () => (
   <>
     <section className="page-header">
       <div className="container">
-        <h1>10장. 서브쿼리</h1>
+        <h1>10. 서브쿼리</h1>
         <p>스칼라, 인라인 뷰, 상관 서브쿼리, EXISTS</p>
       </div>
     </section>
