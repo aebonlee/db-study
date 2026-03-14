@@ -616,6 +616,12 @@
 .exam-detail-correct { border-left: 3px solid #22c55e; }
 .exam-explanation { margin-top: 8px; padding: 12px 16px; background: #eff6ff; border-left: 3px solid var(--primary-blue); border-radius: 0 8px 8px 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-primary); }
 .exam-result-actions { display: flex; gap: 12px; justify-content: center; }
+/* guide panel */
+.exam-guide-panel { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; }
+.exam-guide-toggle { width: 100%; padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 8px; background: #eff6ff; color: var(--primary-blue); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all .15s; }
+.exam-guide-toggle:hover { background: #dbeafe; }
+.exam-guide-content { margin-top: 12px; padding: 14px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; }
+.exam-guide-content pre { font-size: 0.82rem; line-height: 1.7; white-space: pre-wrap; word-break: keep-all; margin: 0; color: #166534; font-family: inherit; }
 @media (max-width: 768px) {
   .exam-level-grid { grid-template-columns: 1fr; }
   .exam-info-grid { grid-template-columns: repeat(2, 1fr); }
