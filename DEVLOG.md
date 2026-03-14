@@ -13,6 +13,39 @@
 
 ---
 
+## 2026-03-14 (Day 1-6) — DB 튜닝 / Oracle 튜닝 목차 페이지 디자인 개선
+
+### 변경 배경
+`/tuning`(DB 튜닝 MySQL)과 `/oracle`(Oracle SQL 튜닝) 두 목차 페이지가 기본 카드 그리드만 사용하고 있어, 학습 흐름이 한눈에 보이지 않았음. 박스형 카드 디자인으로 전면 개선.
+
+### 디자인 변경 내용
+
+#### 공통 추가 요소
+- **학습 흐름 오버뷰 바**: 상단에 단계별 아이콘+제목을 화살표로 연결한 수평 플로우 바 추가
+- **박스형 카드 리스트**: 기존 정사각형 그리드 → 가로형 카드 리스트로 변경
+  - Step/Day 뱃지, 아이콘, 제목/설명, 키워드 태그, 호버 화살표 포함
+- **키워드 태그**: 각 카드에 핵심 키워드 태그 표시 (pill 스타일)
+- **상호 링크**: DB 튜닝 → Oracle 튜닝 안내, Oracle 튜닝 → DB 튜닝 안내
+
+#### 수정 파일
+
+| 파일 | 변경 내용 |
+|------|-----------|
+| `DbTuning.jsx` | 오버뷰 플로우 바 + 5개 박스형 카드(Step 1-5) + Oracle 튜닝 안내 callout |
+| `OracleTuning.jsx` | 오버뷰 플로우 바 + 5개 박스형 카드(Day 1-5) + MySQL 튜닝 안내 callout + Oracle 튜닝의 본질 callout |
+| `site.css` | ~140줄 CSS 추가 (tuning-overview, tuning-card-box, tuning-tag, 다크모드, 반응형) |
+
+#### 새로 추가된 CSS 클래스
+- `.tuning-overview` — 수평 플로우 바 컨테이너
+- `.tuning-overview-item` / `.tuning-overview-arrow` — 단계 아이템과 화살표
+- `.tuning-cards-list` — 세로 카드 리스트 컨테이너
+- `.tuning-card-box` — 가로형 카드 (호버 시 그림자+화살표 애니메이션)
+- `.tuning-card-step` — 파란 pill 뱃지 (Step/Day)
+- `.tuning-card-tags` / `.tuning-tag` — 키워드 태그
+- 다크모드 및 모바일 반응형 스타일 포함
+
+---
+
 ## 2026-03-14 (Day 1-5) — "Oracle SQL 튜닝" 메뉴 추가
 
 ### 추가 배경
