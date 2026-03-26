@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터베이스 시험 - 진행중</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="theme-color" content="#0ea5e9">
+    <meta name="msapplication-TileColor" content="#0ea5e9">
+</head>
+<body>
+    <div class="exam-container">
+        <header class="exam-header">
+            <div class="exam-info-bar">
+                <div class="user-info">
+                    <span id="examUserName"></span>
+                </div>
+                <div class="timer-container">
+                    <span class="timer-label">남은 시간:</span>
+                    <span id="timer" class="timer">60:00</span>
+                </div>
+                <div class="progress-info">
+                    <span>진행률: </span>
+                    <span id="progressText">0/50</span>
+                </div>
+            </div>
+        </header>
+        
+        <main class="exam-main">
+            <div class="exam-content">
+                <div class="question-navigation">
+                    <h3>문제 목록</h3>
+                    <div class="nav-section">
+                        <h4>객관식 (1-30)</h4>
+                        <div id="multipleChoiceNav" class="nav-buttons"></div>
+                    </div>
+                    <div class="nav-section">
+                        <h4>단답식 (31-50)</h4>
+                        <div id="shortAnswerNav" class="nav-buttons"></div>
+                    </div>
+                </div>
+                
+                <div class="question-area">
+                    <div id="questionContainer">
+                        <!-- 문제가 동적으로 로드됩니다 -->
+                    </div>
+                    
+                    <div class="question-controls">
+                        <button id="prevBtn" class="btn-nav" disabled>이전 문제</button>
+                        <button id="nextBtn" class="btn-nav">다음 문제</button>
+                        <button id="submitBtn" class="btn-submit">제출하기</button>
+                    </div>
+                </div>
+                
+                <aside class="reference-guide">
+                    <h3>📚 학습 가이드</h3>
+                    <div id="referenceContent">
+                        <div class="guide-intro">
+                            <p>현재 문제와 관련된 학습 내용을 확인하세요.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="score-tracker">
+                        <h4>💯 예상 점수</h4>
+                        <div class="score-display">
+                            <span class="current-score" id="currentScore">0</span>
+                            <span class="score-separator">/</span>
+                            <span class="max-score">100</span>
+                        </div>
+                        <div class="score-progress">
+                            <div class="score-bar" id="scoreBar"></div>
+                        </div>
+                        <p class="score-info">정답/답변: <span id="answeredCount">0/0</span></p>
+                        <p class="score-note" style="font-size: 0.85rem; color: #6b7280; margin-top: 0.5rem;">
+                            ※ 실시간 정답 확인 기준 예상 점수
+                        </p>
+                    </div>
+                    
+                    <div class="guide-toggle">
+                        <button id="toggleGuide" class="btn-toggle">📖 가이드 열기</button>
+                    </div>
+                </aside>
+            </div>
+            
+            <div class="auto-save-indicator" id="saveIndicator">
+                <span>자동 저장됨</span>
+            </div>
+        </main>
+        
+        <!-- 제출 확인 모달 -->
+        <div id="submitModal" class="modal">
+            <div class="modal-content">
+                <h3>🎯 시험 제출 확인</h3>
+                <p>정말로 시험을 제출하시겠습니까?</p>
+                <p class="warning">⚠️ 제출 후에는 답안을 수정할 수 없습니다.</p>
+                <div class="modal-stats">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+                        <p>📝 답변한 문제: <span id="answeredCount" style="font-weight: bold;">0</span>/50</p>
+                        <p>❓ 미답변 문제: <span id="unansweredCount" style="font-weight: bold; color: #f59e0b;">50</span>개</p>
+                        <p>✅ 정답: <span id="correctCount" style="color: #10b981; font-weight: bold;">0</span>개</p>
+                        <p>❌ 오답: <span id="incorrectCount" style="color: #ef4444; font-weight: bold;">0</span>개</p>
+                    </div>
+                    <div style="padding: 10px; background: #f0f9ff; border-radius: 8px; margin-top: 10px;">
+                        <p style="font-size: 1.1em; text-align: center; margin: 0;">
+                            💯 예상 점수: <span id="expectedScore" style="color: #0ea5e9; font-weight: bold; font-size: 1.2em;">0</span>점
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-buttons">
+                    <button id="confirmSubmit" class="btn-confirm">제출</button>
+                    <button id="cancelSubmit" class="btn-cancel">취소</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 시간 초과 모달 -->
+        <div id="timeoutModal" class="modal">
+            <div class="modal-content">
+                <h3>시험 시간 종료</h3>
+                <p>시험 시간이 종료되었습니다.</p>
+                <p>답안이 자동으로 제출됩니다.</p>
+                <button id="timeoutOk" class="btn-confirm">확인</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/security.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/exam.js"></script>
+</body>
+</html>
