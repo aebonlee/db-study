@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://db-study.dreamitbiz.com/sitemap.xml
