@@ -10,3 +10,5 @@
 @import './styles/site.css';
 @import './styles/dark-mode.css';
 @import './styles/responsive.css';
+@import './styles/auth.css';
+@import './styles/admin.css';

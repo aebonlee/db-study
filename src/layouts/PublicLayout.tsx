@@ -2,6 +2,7 @@ import { lazy, Suspense, type ReactElement } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
+import AdminGuard from '../components/AdminGuard';
 import useCodeCopy from '../hooks/useCodeCopy';
 import useTableScroller from '../hooks/useTableScroller';
 
@@ -50,6 +51,8 @@ const DbExamBasic = lazy(() => import('../pages/DbExamBasic'));
 const DbExamInter = lazy(() => import('../pages/DbExamInter'));
 const References = lazy(() => import('../pages/References'));
 const Training = lazy(() => import('../pages/Training'));
+const Login = lazy(() => import('../pages/Login'));
+const AdminDashboard = lazy(() => import('../pages/admin/AdminDashboard'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
 const Loading = (): ReactElement => (
@@ -113,6 +116,8 @@ const PublicLayout = (): ReactElement => {
             <Route path="/exam/intermediate" element={<DbExamInter />} />
             <Route path="/references" element={<References />} />
             <Route path="/training" element={<Training />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/admin/dashboard/*" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
