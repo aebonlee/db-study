@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 
 function Login(): React.ReactElement {
   const navigate = useNavigate();
-  const { login, signup } = useAuth();
+  const { login, signup, loginWithGoogle, loginWithKakao } = useAuth();
 
   const [activeTab, setActiveTab] = useState('login');
   const [error, setError] = useState('');
@@ -67,16 +67,19 @@ function Login(): React.ReactElement {
 
   const handleGoogleLogin = async (): Promise<void> => {
     setError('');
-    setLoading(true);
-
     try {
-      // Google OAuth integration placeholder
-      // In production, this would use Firebase Auth or similar
-      setError('Google 로그인은 준비 중입니다.');
+      await loginWithGoogle();
     } catch (err) {
       setError((err as Error).message || 'Google 로그인에 실패했습니다.');
-    } finally {
-      setLoading(false);
+    }
+  };
+
+  const handleKakaoLogin = async (): Promise<void> => {
+    setError('');
+    try {
+      await loginWithKakao();
+    } catch (err) {
+      setError((err as Error).message || 'Kakao 로그인에 실패했습니다.');
     }
   };
 
@@ -258,6 +261,36 @@ function Login(): React.ReactElement {
               />
             </svg>
             Google로 계속하기
+          </button>
+
+          <button
+            type="button"
+            onClick={handleKakaoLogin}
+            disabled={loading}
+            style={{
+              marginTop: '8px',
+              background: '#FEE500',
+              color: '#191919',
+              border: 'none',
+              padding: '12px 20px',
+              borderRadius: '8px',
+              fontSize: '15px',
+              fontWeight: 600,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              width: '100%',
+            }}
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <path
+                d="M12 3C6.48 3 2 6.36 2 10.44c0 2.62 1.74 4.93 4.36 6.24-.19.7-.69 2.53-.79 2.93-.12.49.18.48.38.35.15-.1 2.44-1.66 3.43-2.33.85.13 1.73.19 2.62.19 5.52 0 10-3.36 10-7.38C22 6.36 17.52 3 12 3z"
+                fill="#191919"
+              />
+            </svg>
+            카카오로 계속하기
           </button>
         </div>
       </div>

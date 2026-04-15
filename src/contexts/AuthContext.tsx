@@ -27,6 +27,7 @@ interface AuthContextValue {
   login: (email: string, password: string) => Promise<AuthResult>;
   signup: (email: string, password: string) => Promise<AuthResult>;
   loginWithGoogle: () => Promise<AuthResult>;
+  loginWithKakao: () => Promise<AuthResult>;
   logout: () => Promise<{ error: AuthError | null }>;
   resetPassword: (email: string) => Promise<AuthResult>;
 }
@@ -209,6 +210,28 @@ export function AuthProvider({ children }: AuthProviderProps): React.ReactElemen
     return { data };
   }, []);
 
+  const loginWithKakao = useCallback(async (): Promise<AuthResult> => {
+    if (!supabase) {
+      const msg = 'Supabase is not configured.';
+      setError(msg);
+      return { error: { message: msg } };
+    }
+
+    setError(null);
+
+    const { data, error: kakaoError } = await supabase.auth.signInWithOAuth({
+      provider: 'kakao',
+      options: { redirectTo: window.location.origin }
+    });
+
+    if (kakaoError) {
+      setError(kakaoError.message);
+      return { error: kakaoError };
+    }
+
+    return { data };
+  }, []);
+
   const logout = useCallback(async (): Promise<{ error: AuthError | null }> => {
     if (!supabase) {
       setUser(null);
@@ -271,9 +294,10 @@ export function AuthProvider({ children }: AuthProviderProps): React.ReactElemen
     login,
     signup,
     loginWithGoogle,
+    loginWithKakao,
     logout,
     resetPassword
-  }), [user, session, loading, error, isAdmin, accountBlock, clearAccountBlock, login, signup, loginWithGoogle, logout, resetPassword]);
+  }), [user, session, loading, error, isAdmin, accountBlock, clearAccountBlock, login, signup, loginWithGoogle, loginWithKakao, logout, resetPassword]);
 
   return (
     <AuthContext.Provider value={value}>

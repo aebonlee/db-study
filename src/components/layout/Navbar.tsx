@@ -2,6 +2,7 @@ import { useState, useEffect, type ReactElement } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useAuth } from '../../contexts/AuthContext';
 import site from '../../config/site';
 
 interface ColorOption {
@@ -39,6 +40,7 @@ const Navbar = (): ReactElement => {
   const location = useLocation();
   const { mode, toggleTheme, colorTheme, setColorTheme } = useTheme();
   const { language, toggleLanguage, t } = useLanguage();
+  const { isAuthenticated, logout, user } = useAuth();
 
   useEffect(() => {
     const handleScroll = (): void => setIsScrolled(window.scrollY > 50);
@@ -177,6 +179,25 @@ const Navbar = (): ReactElement => {
                 <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
               </svg>
             </button>
+            {isAuthenticated ? (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontSize: '13px', opacity: 0.8, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '120px' }}>
+                  {user?.user_metadata?.full_name || user?.email?.split('@')[0] || ''}
+                </span>
+                <button
+                  className="lang-switcher"
+                  onClick={() => logout()}
+                  aria-label="로그아웃"
+                  style={{ fontSize: '12px', whiteSpace: 'nowrap' }}
+                >
+                  로그아웃
+                </button>
+              </div>
+            ) : (
+              <Link to="/login" className="lang-switcher" style={{ textDecoration: 'none', fontSize: '12px', whiteSpace: 'nowrap' }}>
+                로그인
+              </Link>
+            )}
             <button
               className={`mobile-toggle ${isMobileMenuOpen ? 'active' : ''}`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
