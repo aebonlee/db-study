@@ -3,6 +3,7 @@ import type { User, Session, AuthError } from '@supabase/supabase-js';
 import { supabase, setSharedSession, getSharedSession, clearSharedSession } from '../lib/supabase';
 import { ADMIN_EMAILS } from '../config/admin';
 import { useIdleTimeout } from '../hooks/useIdleTimeout';
+import ProfileCompleteModal from '../components/ProfileCompleteModal';
 
 interface AccountBlock {
   status: string;
@@ -43,6 +44,7 @@ export function AuthProvider({ children }: AuthProviderProps): React.ReactElemen
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [_userProfile, _setUserProfile] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
   const [accountBlock, setAccountBlock] = useState<AccountBlock | null>(null);
 
@@ -89,6 +91,15 @@ export function AuthProvider({ children }: AuthProviderProps): React.ReactElemen
     } catch {
       // check_user_status function may not exist
     }
+  }, []);
+
+  
+  // ─── 프로필 완성 체크용 user_profiles 로드 ───
+  const _loadUserProfile = useCallback(async (uid: string) => {
+    try {
+      const { data } = await supabase!.from('user_profiles').select('name,phone').eq('id', uid).maybeSingle();
+      _setUserProfile(data);
+    } catch { _setUserProfile(null); }
   }, []);
 
   useEffect(() => {
@@ -305,14 +316,20 @@ export function AuthProvider({ children }: AuthProviderProps): React.ReactElemen
   useIdleTimeout({
   enabled: !!user,
   onTimeout: () => {
-  supabase.auth.signOut();
+  supabase?.auth.signOut();
   clearSharedSession();
   },
   });
+  const refreshProfile = useCallback(async () => { if (user) await _loadUserProfile(user.id); }, [user, _loadUserProfile]);
+  const needsProfileCompletion = !!user && !!_userProfile && (!_userProfile.name || !_userProfile.phone);
+
 
   return (
     <AuthContext.Provider value={value}>
       {children}
+      {needsProfileCompletion && user && (
+        <ProfileCompleteModal user={user} onComplete={refreshProfile} />
+      )}
     </AuthContext.Provider>
   );
 }
