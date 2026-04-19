@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 function Login(): React.ReactElement {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = (location.state as { from?: { pathname: string } })?.from?.pathname || '/';
   const { login, signup, loginWithGoogle, loginWithKakao } = useAuth();
 
   const [activeTab, setActiveTab] = useState('login');
@@ -30,7 +32,7 @@ function Login(): React.ReactElement {
       }
 
       await login(loginEmail, loginPassword);
-      navigate('/');
+      navigate(from, { replace: true });
     } catch (err) {
       setError((err as Error).message || '로그인에 실패했습니다. 다시 시도해주세요.');
     } finally {
@@ -57,7 +59,7 @@ function Login(): React.ReactElement {
       }
 
       await signup(registerEmail, registerPassword);
-      navigate('/');
+      navigate(from, { replace: true });
     } catch (err) {
       setError((err as Error).message || '회원가입에 실패했습니다. 다시 시도해주세요.');
     } finally {
