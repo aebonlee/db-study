@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -6,11 +6,19 @@ function Login(): React.ReactElement {
   const navigate = useNavigate();
   const location = useLocation();
   const from = (location.state as { from?: { pathname: string } })?.from?.pathname || '/';
-  const { login, signup, loginWithGoogle, loginWithKakao } = useAuth();
+  const { user, loading: authLoading, login, signup, loginWithGoogle, loginWithKakao } = useAuth();
+
+  // 이미 로그인된 경우 자동 리다이렉트
+  useEffect(() => {
+    if (!authLoading && user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, authLoading, navigate, from]);
 
   const [activeTab, setActiveTab] = useState('login');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
 
   // Login form state
   const [loginEmail, setLoginEmail] = useState('');
@@ -59,7 +67,10 @@ function Login(): React.ReactElement {
       }
 
       await signup(registerEmail, registerPassword);
-      navigate(from, { replace: true });
+      setSuccessMessage(`${registerEmail}로 확인 링크를 발송했습니다. 이메일을 확인 후 로그인해주세요.`);
+      setRegisterEmail('');
+      setRegisterPassword('');
+      setRegisterPasswordConfirm('');
     } catch (err) {
       setError((err as Error).message || '회원가입에 실패했습니다. 다시 시도해주세요.');
     } finally {
@@ -102,6 +113,7 @@ function Login(): React.ReactElement {
               onClick={() => {
                 setActiveTab('login');
                 setError('');
+                setSuccessMessage('');
               }}
             >
               로그인
@@ -112,6 +124,7 @@ function Login(): React.ReactElement {
               onClick={() => {
                 setActiveTab('register');
                 setError('');
+                setSuccessMessage('');
               }}
             >
               회원가입
@@ -123,6 +136,14 @@ function Login(): React.ReactElement {
             <div className="login-error" role="alert">
               <span className="login-error__icon">!</span>
               <span className="login-error__message">{error}</span>
+            </div>
+          )}
+
+          {/* Success Message */}
+          {successMessage && (
+            <div className="auth-message auth-message-success" role="status">
+              <span>✓</span>
+              <span>{successMessage}</span>
             </div>
           )}
 
