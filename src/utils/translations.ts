@@ -94,6 +94,7 @@ export const translations: TranslationData = {
   en: {
     nav: {
       home: 'Home'
+          about: 'About',
     },
     site: {
       nav: {
